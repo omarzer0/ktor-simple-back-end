@@ -1,22 +1,16 @@
 package az.zero.plugins
 
-import io.ktor.routing.*
-import io.ktor.http.*
-import io.ktor.content.*
-import io.ktor.http.content.*
+import az.zero.routes.randomRabbit
 import io.ktor.application.*
-import io.ktor.response.*
-import io.ktor.request.*
+import io.ktor.http.content.*
+import io.ktor.routing.*
 
 fun Application.configureRouting() {
-    
 
     routing {
-        get("/") {
-                call.respondText("Hello World!")
-            }
-        // Static plugin. Try to access `/static/index.html`
-        static("/static") {
+        randomRabbit()
+
+        static {
             resources("static")
         }
     }
